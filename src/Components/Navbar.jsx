@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { assets } from "../assets/assets";
 import { FaArrowAltCircleRight } from "react-icons/fa";
+import { Link as ScrollLink } from "react-scroll"; // Import ScrollLink
 
 export default function Navbar() {
   const [openSideNav, setOpenSideNav] = useState(false);
@@ -11,9 +12,16 @@ export default function Navbar() {
       <NavLink to="/" activeClassName="text-blue-500">
         Home
       </NavLink>
-      <NavLink to="/about" activeClassName="text-blue-500">
+      <ScrollLink
+        to="about"
+        smooth={true}
+        duration={500}
+        className="nav-link"
+        activeClass="selected"
+        activeStyle={{ color: "red" }}
+      >
         About me
-      </NavLink>
+      </ScrollLink>
       <NavLink to="/services" activeClassName="text-blue-500">
         Services
       </NavLink>
@@ -35,7 +43,7 @@ export default function Navbar() {
       ></div>
 
       <div className="relative">
-        <nav className="flex justify-between items-center py-3 md:py-4 ">
+        <nav className="flex justify-between items-center py-3 md:py-4 border-2">
           <img src={assets.logo} alt="Company Logo" className="w-28" />
 
           {/* Desktop Links */}

@@ -6,33 +6,37 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 
 export default function Banner() {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true }); // Initialize AOS
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
     <div
-      className="flex flex-col justify-center items-center space-y-4 text-center"
-      data-aos="fade-up" // Apply AOS fade-up effect
+      className="md:h-[calc(100vh-48px)]  flex flex-col  items-center space-y-4 text-center border-2"
+      data-aos="fade-up"
     >
       {/* Profile Image */}
       <img
-        className="w-[300px]"
+        className="w-[200px]"
         src={assets.profile_img}
         alt="Profile"
         data-aos="fade-down"
       />
 
       {/* Name & Title */}
-      <div className="" data-aos="fade-up" data-aos-delay="200">
-        <h1 className="text-2xl">
-          Hi, I'm
-          <span className="text-2xl"> Prince Mahmud Piyas</span>
-        </h1>
-        <h2 className="text-5xl">Frontend Web Developer</h2>
-      </div>
+      <h1 className="text-2xl" data-aos="fade-up">
+        Hi, I'm
+        <span className="text-2xl"> Prince Mahmud Piyas</span>
+      </h1>
+      <h2
+        className="text-5xl font-semibold"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        Frontend Web Developer
+      </h2>
 
       {/* Description */}
-      <p className="text-lg" data-aos="fade-up" data-aos-delay="300">
+      <p className="text-lg" data-aos="fade-up" data-aos-delay="400">
         I am a frontend developer from California, USA with 10 years of
         experience in multiple companies like Microsoft, Tesla, and Apple.
       </p>
@@ -41,7 +45,7 @@ export default function Banner() {
       <div
         className="text-white space-x-6"
         data-aos="fade-up"
-        data-aos-delay="300"
+        data-aos-delay="400"
       >
         {/* Connect Button */}
         <button className="relative inline-flex items-center px-8 py-2.5 overflow-hidden text-lg font-medium rounded-full bg-blue-500">
