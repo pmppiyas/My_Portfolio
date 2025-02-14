@@ -3,7 +3,7 @@ import Heading from "./Heading";
 
 export default function Services() {
   return (
-    <div className="mb-52">
+    <div className="">
       <Heading
         sub={"What I offer"}
         main={"My services"}

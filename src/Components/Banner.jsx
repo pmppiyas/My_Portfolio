@@ -11,7 +11,7 @@ export default function Banner() {
 
   return (
     <div
-      className="md:h-[calc(100vh-100px)]  flex flex-col  items-center justify-center space-y-4 text-center "
+      className="md:h-[calc(100vh-200px)]  flex flex-col  items-center justify-center space-y-4 text-center "
       data-aos="fade-up"
     >
       {/* Profile Image */}
