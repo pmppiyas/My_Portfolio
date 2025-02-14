@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css";
 import { assets } from "../assets/assets";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
@@ -11,7 +11,7 @@ export default function Banner() {
 
   return (
     <div
-      className="md:h-[calc(100vh-48px)]  flex flex-col  items-center space-y-4 text-center border-2"
+      className="md:h-[calc(100vh-100px)]  flex flex-col  items-center justify-center space-y-4 text-center "
       data-aos="fade-up"
     >
       {/* Profile Image */}

@@ -9,29 +9,15 @@ import { VscVscode } from "react-icons/vsc";
 export default function About() {
   return (
     <div id="about" className="pb-10  ">
-      <Heading sub={"Introduction"} main={"About me"}></Heading>
-      <div className="md:grid grid-cols-3 md:flex-row justify-evenly items-center gap-10 space-y-10  ">
-        <div className=" w-full h-full  rounded-b-xl">
-          {" "}
-          <img
-            className="bg-center w-full h-full p-10 bg-gray-200"
-            src={assets.user_image}
-            alt="Profile"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          />
-        </div>
+      <Heading
+        sub={"Introduction"}
+        main={"About me"}
+        para={
+          "I am an experienced Frontend Developer with over a decade of professional expertise in the field. Throughout my career, I have had the privilege of collaborating with prestigious organizations, contributing to their success and growth."
+        }
+      ></Heading>
+      <div className="flex justify-evenly items-center gap-10 space-y-10  ">
         <div className="col-span-2 space-y-6 flex flex-col  gap-5 md:gap-8 h-full justify-between ">
-          <p
-            className="leading-8 text-[1rem] md:text-[1.2rem] px-6 md:px-0"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            I am an experienced Frontend Developer with over a decade of
-            professional expertise in the field. Throughout my career, I have
-            had the privilege of collaborating with prestigious organizations,
-            contributing to their success and growth.
-          </p>
           <div className="flex gap-6 flex-col md:flex-row ">
             {infoList.map((info) => {
               return (

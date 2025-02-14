@@ -1,6 +1,7 @@
 import About from "../Components/About";
 import Banner from "../Components/Banner";
 import Navbar from "../Components/Navbar";
+import Services from "../Components/Services";
 
 export default function HomeLayout() {
   return (
@@ -8,6 +9,7 @@ export default function HomeLayout() {
       <Navbar></Navbar>
       <Banner></Banner>
       <About></About>
+      <Services></Services>
     </div>
   );
 }
