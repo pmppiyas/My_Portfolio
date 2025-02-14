@@ -11,7 +11,7 @@ export default function MyWork() {
   }, []);
 
   return (
-    <div className="pb-16">
+    <div className="pb-16" id="projects">
       <Heading
         sub={"My portfolio"}
         main={"My latest work"}

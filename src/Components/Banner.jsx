@@ -11,6 +11,7 @@ export default function Banner() {
 
   return (
     <div
+      id="home"
       className="md:h-[calc(100vh-200px)]  flex flex-col  items-center justify-center space-y-4 text-center "
       data-aos="fade-up"
     >

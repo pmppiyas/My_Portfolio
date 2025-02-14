@@ -1,5 +1,6 @@
 import About from "../Components/About";
 import Banner from "../Components/Banner";
+import Footer from "../Components/Footer";
 import MyWork from "../Components/MyWork";
 import Navbar from "../Components/Navbar";
 import Services from "../Components/Services";
@@ -12,6 +13,7 @@ export default function HomeLayout() {
       <About></About>
       <Services></Services>
       <MyWork></MyWork>
+      <Footer></Footer>
     </div>
   );
 }

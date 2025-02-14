@@ -1,89 +1,124 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { assets } from "../assets/assets";
-import { FaArrowAltCircleRight } from "react-icons/fa";
-import { Link as ScrollLink } from "react-scroll"; // Import ScrollLink
+// react icons
+import { IoIosSearch } from "react-icons/io";
+import { FaDiscord } from "react-icons/fa";
+import { TbBrandGithubFilled } from "react-icons/tb";
+import { CiMenuFries } from "react-icons/ci";
+import { Link as ScrollLink } from "react-scroll";
 
-export default function Navbar() {
-  const [openSideNav, setOpenSideNav] = useState(false);
+const ResponsiveNavbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const links = (
     <>
-      <NavLink to="/" activeClassName="text-blue-500">
+      <ScrollLink
+        to="home"
+        smooth={true}
+        duration={500}
+        className="nav-link text-gray-600 hover:text-blue-500 cursor-pointer transition-all duration-300"
+        activeClass="selected"
+        activeStyle={{ color: "red" }}
+      >
         Home
-      </NavLink>
+      </ScrollLink>
       <ScrollLink
         to="about"
         smooth={true}
         duration={500}
-        className="nav-link"
+        className="nav-link text-gray-600 hover:text-blue-500 cursor-pointer transition-all duration-300"
         activeClass="selected"
         activeStyle={{ color: "red" }}
       >
         About me
       </ScrollLink>
-      <NavLink to="/services" activeClassName="text-blue-500">
+      <ScrollLink
+        to="services"
+        smooth={true}
+        duration={500}
+        className="nav-link text-gray-600 hover:text-blue-500 cursor-pointer transition-all duration-300"
+        activeClass="selected"
+        activeStyle={{ color: "red" }}
+      >
         Services
-      </NavLink>
-      <NavLink to="/projects" activeClassName="text-blue-500">
-        Projects
-      </NavLink>
-      <NavLink to="/testimonials" activeClassName="text-blue-500">
-        Testimonials
-      </NavLink>
+      </ScrollLink>
+      <ScrollLink
+        to="projects"
+        smooth={true}
+        duration={500}
+        className="nav-link text-gray-600 hover:text-blue-500 cursor-pointer transition-all duration-300"
+        activeClass="selected"
+        activeStyle={{ color: "red" }}
+      >
+        My Projects
+      </ScrollLink>
+      <ScrollLink
+        to="testimonial"
+        smooth={true}
+        duration={500}
+        className="nav-link text-gray-600 hover:text-blue-500 cursor-pointer transition-all duration-300"
+        activeClass="selected"
+        activeStyle={{ color: "red" }}
+      >
+        Testimonial
+      </ScrollLink>
     </>
   );
 
   return (
-    <>
-      {/* Navbar Background */}
-      <div
-        className="fixed top-0 right-0 w-full h-16 bg-cover"
-        style={{ backgroundImage: `url(${assets.header_bg_color})` }}
-      ></div>
+    <nav className="flex items-center justify-between w-full relative ">
+      {/* logo */}
+      <img
+        src="https://i.ibb.co/0BZfPq6/darklogo.png"
+        alt="logo"
+        className="w-[60px] "
+      />
 
-      <div className="relative">
-        <nav className="flex justify-between items-center py-3 md:py-4 border-2">
-          <img src={assets.logo} alt="Company Logo" className="w-28" />
+      {/* nav menus */}
+      <ul className="items-center gap-[20px] text-[1rem] text-[#424242] md:flex hidden">
+        {links}
+      </ul>
 
-          {/* Desktop Links */}
-          <ul className="hidden md:flex gap-8 text-xl font-normal bg-amber-50 py-2 px-8 shadow rounded-full">
-            {links}
-          </ul>
+      {/* search bar and community links */}
+      <div className="flex items-center gap-[10px]">
+        <div className="relative md:flex hidden">
+          <input
+            className="py-1.5 pr-4 border border-text pl-10 rounded-full outline-none focus:border-[#3B9DF8]"
+            placeholder="Search..."
+          />
+          <IoIosSearch className="absolute top-[9px] left-3 text-[#424242] text-[1.3rem]" />
+        </div>
 
-          {/* Resume Button & Mobile Menu */}
-          <div>
-            <button className="relative inline-flex items-center px-8 py-2.5 overflow-hidden text-lg font-medium text-primary border-2 border-primary rounded-full hover:text-white group hover:bg-blue-500">
-              <span className="absolute left-0 block w-full h-0 transition-all bg-primary opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
-              <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
-                <FaArrowAltCircleRight />
-              </span>
-              <span className="relative text-[1rem] group-hover:pr-4 transition-all duration-400">
-                My Resume
-              </span>
-            </button>
+        <FaDiscord className="text-[1.6rem] text-[#424242] cursor-pointer hover:text-[#3B9DF8] transition-all duration-500 " />
+        <TbBrandGithubFilled className="text-[1.6rem] text-[#424242] cursor-pointer hover:text-[#3B9DF8] transition-all duration-500" />
 
-            {/* Mobile Menu Toggle */}
-            <button
-              className="md:hidden"
-              onClick={() => setOpenSideNav((prev) => !prev)}
-            >
-              <img
-                src={openSideNav ? assets.arrow_icon : assets.menu_black}
-                alt="Toggle Menu"
-                className={`w-5 ml-4 ${openSideNav ? "rotate-45" : ""}`}
-              />
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile Sidebar */}
-        {openSideNav && (
-          <ul className="flex md:hidden flex-col h-screen bg-green-300 w-52 text-lg items-center gap-6 pt-8 absolute top-20 -right-2">
-            {links}
-          </ul>
-        )}
+        <CiMenuFries
+          className="text-[1.6rem] text-[#424242] cursor-pointer md:hidden flex"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        />
       </div>
-    </>
+
+      {/* mobile sidebar */}
+      <aside
+        className={`${
+          isMenuOpen
+            ? "translate-x-0 opacity-100 z-20"
+            : "translate-x-[200px] opacity-0 z-[-1]"
+        } md:hidden bg-[#3B9DF8] p-4 text-center absolute top-[60px] right-0 w-full sm:w-[300px] rounded-md transition-all duration-300`}
+      >
+        <div className="w-full relative mb-5">
+          <input
+            className="py-1.5 pr-4 pl-12 w-full rounded-full outline-none focus:border-[#3B9DF8]"
+            placeholder="Search..."
+          />
+          <IoIosSearch className="absolute top-[9px] left-5 text-[#424242] text-[1.3rem]" />
+        </div>
+
+        <ul className="items-center gap-[20px] text-[1rem] text-white flex flex-col">
+          {links}
+        </ul>
+      </aside>
+    </nav>
   );
-}
+};
+
+export default ResponsiveNavbar;
